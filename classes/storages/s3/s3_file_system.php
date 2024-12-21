@@ -74,7 +74,7 @@ class s3_file_system extends storage_file_system implements i_file_system {
         if ($s3client) {
             return $s3client;
         }
-        $settings_s3_endpoint = "linodeobjects.com"
+        $settings_s3_endpoint = "linodeobjects.com";
         require_once(__DIR__ . "/S3.php");
         require_once(__DIR__ . "/S3Request.php");
 
