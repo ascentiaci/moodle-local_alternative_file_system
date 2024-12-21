@@ -74,7 +74,7 @@ class s3_file_system extends storage_file_system implements i_file_system {
         if ($s3client) {
             return $s3client;
         }
-        $config->settings_s3_endpoint = "linodeobjects.com"
+        $settings_s3_endpoint = "linodeobjects.com"
         require_once(__DIR__ . "/S3.php");
         require_once(__DIR__ . "/S3Request.php");
 
@@ -82,7 +82,7 @@ class s3_file_system extends storage_file_system implements i_file_system {
 
         $endpoint = "";
         if ($config->settings_destino == 's3') {
-            $endpoint = "{$config->settings_s3_region}.{$config->settings_s3_endpoint}";
+            $endpoint = "{$config->settings_s3_region}.{$settings_s3_endpoint}";
         } else if ($config->settings_destino == 'space') {
             $endpoint = "{$config->settings_s3_region}.digitaloceanspaces.com";
         }
