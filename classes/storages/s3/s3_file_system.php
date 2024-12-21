@@ -74,18 +74,18 @@ class s3_file_system extends storage_file_system implements i_file_system {
         if ($s3client) {
             return $s3client;
         }
-        $settings_s3_endpoint = "linodeobjects.com";
+        $settings_s3_endpoint = "acimoodile.us-sea-1.linodeobjects.com";
         require_once(__DIR__ . "/S3.php");
         require_once(__DIR__ . "/S3Request.php");
 
         $config = get_config("local_alternative_file_system");
 
-        $endpoint = "";
-        if ($config->settings_destino == 's3') {
-            $endpoint = "{$config->settings_s3_region}.{$settings_s3_endpoint}";
-        } else if ($config->settings_destino == 'space') {
-            $endpoint = "{$config->settings_s3_region}.digitaloceanspaces.com";
-        }
+        $endpoint = "acimoodile.us-sea-1.linodeobjects.com";
+        // if ($config->settings_destino == 's3') {
+        //     $endpoint = "{$config->settings_s3_region}.{$settings_s3_endpoint}";
+        // } else if ($config->settings_destino == 'space') {
+        //     $endpoint = "{$config->settings_s3_region}.digitaloceanspaces.com";
+        // }
 
         $s3client = new S3($config->settings_s3_credentials_key, $config->settings_s3_credentials_secret, $endpoint);
 
