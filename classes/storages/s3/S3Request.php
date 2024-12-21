@@ -130,7 +130,7 @@ final class S3Request {
      *
      * @return mixed
      */
-    function __construct($verb, $bucket = '', $uri = '', $endpoint = 's3.amazonaws.com') {
+    function __construct($verb, $bucket = '', $uri = '', $endpoint = '{$config->settings_s3_endpoint}') {
 
         $this->endpoint = $endpoint;
         $this->verb = $verb;
