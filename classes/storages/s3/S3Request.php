@@ -130,7 +130,7 @@ final class S3Request {
      *
      * @return mixed
      */
-    function __construct($verb, $bucket = '', $uri = '', $endpoint = '{$settings_s3_endpoint}') {
+    function __construct($verb, $bucket = '', $uri = '', $endpoint = 'acimoodile.us-sea-1.linodeobjects.com') {
 
         $this->endpoint = $endpoint;
         $this->verb = $verb;

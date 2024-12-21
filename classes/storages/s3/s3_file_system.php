@@ -82,7 +82,7 @@ class s3_file_system extends storage_file_system implements i_file_system {
 
         $endpoint = "acimoodile.us-sea-1.linodeobjects.com";
         // if ($config->settings_destino == 's3') {
-        //     $endpoint = "{$config->settings_s3_region}.{$settings_s3_endpoint}";
+        //     $endpoint = "{$config->settings_s3_region}.acimoodile.us-sea-1.linodeobjects.com";
         // } else if ($config->settings_destino == 'space') {
         //     $endpoint = "{$config->settings_s3_region}.digitaloceanspaces.com";
         // }

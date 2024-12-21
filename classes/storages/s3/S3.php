@@ -74,7 +74,7 @@ class S3 {
      * @acess public
      * @static
      */
-    public static $endpoint = '{$settings_s3_endpoint}';
+    public static $endpoint = 'acimoodile.us-sea-1.linodeobjects.com';
 
     /**
      * Proxy information
@@ -170,7 +170,7 @@ class S3 {
      *
      * @return void
      */
-    public function __construct($accessKey = null, $secretKey = null, $endpoint = '{$settings_s3_endpoint}') {
+    public function __construct($accessKey = null, $secretKey = null, $endpoint = 'acimoodile.us-sea-1.linodeobjects.com') {
         if ($accessKey !== null && $secretKey !== null)
             self::setAuth($accessKey, $secretKey);
         self::$endpoint = $endpoint;
@@ -839,7 +839,7 @@ class S3 {
 
         $dom = new \DOMDocument;
         $bucketLoggingStatus = $dom->createElement('BucketLoggingStatus');
-        $bucketLoggingStatus->setAttribute('xmlns', 'http://{$settings_s3_endpoint}/doc/2006-03-01/');
+        $bucketLoggingStatus->setAttribute('xmlns', 'http://acimoodile.us-sea-1.linodeobjects.com/doc/2006-03-01/');
         if ($targetBucket !== null) {
             if ($targetPrefix == null) $targetPrefix = $bucket . '-';
             $loggingEnabled = $dom->createElement('LoggingEnabled');
@@ -1077,7 +1077,7 @@ class S3 {
         $expires = self::__getTime() + $lifetime;
         $uri = str_replace(array('%2F', '%2B'), array('/', '+'), rawurlencode($uri));
         return sprintf(($https ? 'https' : 'http') . '://%s/%s?AWSAccessKeyId=%s&Expires=%u&Signature=%s',
-            // $hostBucket ? $bucket : $bucket.'.{$settings_s3_endpoint}', $uri, self::$__accessKey, $expires,
+            // $hostBucket ? $bucket : $bucket.'.acimoodile.us-sea-1.linodeobjects.com', $uri, self::$__accessKey, $expires,
             $hostBucket ? $bucket : self::$endpoint . '/' . $bucket, $uri, self::$__accessKey, $expires,
             urlencode(self::__getHash("GET\n\n\n{$expires}\n/{$bucket}/{$uri}")));
     }
@@ -1210,7 +1210,7 @@ class S3 {
 
         $rest = new S3Request('POST', '', '2010-11-01/distribution', 'cloudfront.amazonaws.com');
         $rest->data = self::__getCloudFrontDistributionConfigXML(
-            $bucket . '.{$settings_s3_endpoint}',
+            $bucket . '.acimoodile.us-sea-1.linodeobjects.com',
             $enabled,
             (string)$comment,
             (string)microtime(true),
