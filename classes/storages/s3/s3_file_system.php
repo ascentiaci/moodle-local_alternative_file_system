@@ -79,7 +79,7 @@ class s3_file_system extends storage_file_system implements i_file_system {
         require_once(__DIR__ . "/S3Request.php");
 
         $config = get_config("local_alternative_file_system");
-        echo $config;
+        // echo $config;
 
         $endpoint = "acimoodile.us-sea-1.linodeobjects.com";
         // if ($config->settings_destino == 's3') {
